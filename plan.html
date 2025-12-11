@@ -4,69 +4,149 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ZIFX — Investment Plans</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header class="topbar-wrap">
-    <div class="topbar container">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="ZIFX logo" />
-        <div class="brand-text">
-          <div class="brand-title">ZIFX</div>
-          <div class="brand-sub">stop trading time for money</div>
-        </div>
-      </div>
-      <nav class="controls">
-        <div class="control-group">
-          <a class="btn" href="index.html">Home</a>
-          <a class="btn" href="plan.html">Plans</a>
-          <a class="btn" href="risk.html">Risk</a>
-        </div>
-      </nav>
+
+  <!-- TOPBAR -->
+  <div class="container topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="ZIFX logo" style="height:36px" />
+      <div style="font-weight:700">ZIFX</div>
+      <div style="color:var(--muted);margin-left:10px">stop trading time for money</div>
     </div>
-  </header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <h1>Investment Plans & Monthly Profit Packages</h1>
-
-        <h2>Standard Investment Plan</h2>
-        <ul>
-          <li>Minimum Investment: RM1,000</li>
-          <li>Projected Monthly Return: 3% – 5%</li>
-          <li>Risk Level: Low</li>
-          <li>Lock-In Period: 12 months</li>
-        </ul>
-
-        <h2>Growth Investment Plan</h2>
-        <ul>
-          <li>Minimum Investment: RM5,000</li>
-          <li>Projected Monthly Return: 4% – 7%</li>
-          <li>Risk Level: Low to Mid</li>
-          <li>Lock-In Period: 12 months</li>
-        </ul>
-
-        <h2>Premium Investment Plan</h2>
-        <ul>
-          <li>Minimum Investment: RM10,000</li>
-          <li>Projected Monthly Return: 5% – 8%</li>
-          <li>Risk Level: Mid</li>
-          <li>Lock-In Period: 12 months</li>
-        </ul>
-
-        <h3>Additional Terms</h3>
-        <p>Compounding option available. Early withdrawal before 12 months subject to 20% fee. Funds routed via regulated brokers.</p>
+    <div class="controls">
+      <div style="display:flex;gap:8px;align-items:center;margin-right:8px">
+        <div class="kicker">Theme</div>
+        <button class="btn" data-theme="a">A</button>
+        <button class="btn" data-theme="b">B</button>
+        <button class="btn" data-theme="c">C</button>
       </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="kicker">Font</div>
+        <button class="btn" data-font="poppins">Poppins</button>
+        <button class="btn" data-font="inter">Inter</button>
+        <button class="btn" data-font="playfair">Playfair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <section class="section container">
+      <h1>Investment Plans & Monthly Profit Packages</h1>
+      <p class="muted">Choose a plan that matches your risk appetite and financial goals. All plans use disciplined, low-to-mid risk trading strategies targeting steady monthly returns.</p>
+
+      <p style="margin-top:12px;color:var(--muted)">
+        <strong>Important:</strong> Principal funds are locked for <strong>6 months</strong>. Monthly profits are withdrawable. Early withdrawal of principal before 6 months is subject to an early exit fee.
+      </p>
+
+      <!-- Pricing grid -->
+      <div class="grid" style="margin-top:24px">
+        <!-- Standard -->
+        <div class="card">
+          <h3>Standard Plan</h3>
+          <p class="muted">Ideal for new investors who want steady, low-risk growth.</p>
+
+          <div style="margin:14px 0">
+            <div><strong>Minimum Investment:</strong> RM1,000</div>
+            <div><strong>Projected Monthly Return:</strong> 3% – 5%</div>
+            <div><strong>Risk Level:</strong> Low</div>
+            <div><strong>Lock-In:</strong> 6 months</div>
+          </div>
+
+          <ul class="muted">
+            <li>Monthly profit withdrawal or compounding available</li>
+            <li>Regular performance reports</li>
+            <li>Managed by EAs + expert oversight</li>
+          </ul>
+
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <a class="btn-primary" href="contact.html">Get Started</a>
+            <a class="btn-secondary" href="how.html">How it works</a>
+          </div>
+        </div>
+
+        <!-- Growth -->
+        <div class="card">
+          <h3>Growth Plan</h3>
+          <p class="muted">For investors seeking higher growth with disciplined compounding.</p>
+
+          <div style="margin:14px 0">
+            <div><strong>Minimum Investment:</strong> RM5,000</div>
+            <div><strong>Projected Monthly Return:</strong> 4% – 7%</div>
+            <div><strong>Risk Level:</strong> Low to Mid</div>
+            <div><strong>Lock-In:</strong> 6 months</div>
+          </div>
+
+          <ul class="muted">
+            <li>Compounding options to accelerate growth</li>
+            <li>Priority reporting & account reviews</li>
+            <li>Adaptive strategy allocation</li>
+          </ul>
+
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <a class="btn-primary" href="contact.html">Get Started</a>
+            <a class="btn-secondary" href="how.html">How it works</a>
+          </div>
+        </div>
+
+        <!-- Premium -->
+        <div class="card">
+          <h3>Premium Plan</h3>
+          <p class="muted">Enhanced allocation and active strategy for experienced investors.</p>
+
+          <div style="margin:14px 0">
+            <div><strong>Minimum Investment:</strong> RM10,000</div>
+            <div><strong>Projected Monthly Return:</strong> 5% – 8%</div>
+            <div><strong>Risk Level:</strong> Mid</div>
+            <div><strong>Lock-In:</strong> 6 months</div>
+          </div>
+
+          <ul class="muted">
+            <li>Enhanced strategy mix & allocation</li>
+            <li>Dedicated account support</li>
+            <li>Option for custom reporting frequency</li>
+          </ul>
+
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <a class="btn-primary" href="contact.html">Get Started</a>
+            <a class="btn-secondary" href="how.html">How it works</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional terms -->
+      <div style="margin-top:28px" class="hero-card">
+        <h3 style="margin:0">Additional Terms & Features</h3>
+        <p class="muted" style="margin-top:10px">
+          <strong>Compounding:</strong> Investors may choose to compound profits monthly to accelerate growth.<br>
+          <strong>Early Withdrawal:</strong> Early withdrawal of principal before 6 months is subject to an early exit fee (e.g., 20%).<br>
+          <strong>Secure Allocation:</strong> Funds are traded through reputable, regulated brokers with risk controls and account segregation.<br>
+        </p>
+
+        <div class="cta" style="margin-top:14px">
+          <a class="btn-primary" href="contact.html">Enquire / Register</a>
+          <a class="btn-secondary" href="terms.html">View Terms</a>
+        </div>
+      </div>
+
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">© <span id="year6"></span> ZIFX.MY</div>
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • <a href="contact.html" style="color:var(--muted)">Contact</a>
+    </div>
   </footer>
 
-  <script>document.getElementById('year6').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/theme.js"></script>
 </body>
 </html>
