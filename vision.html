@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZIFX — Vision & Mission</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="container topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="ZIFX logo" />
+      <div style="font-weight:700">ZIFX</div>
+      <div style="color:var(--muted);margin-left:10px">stop trading time for money</div>
+    </div>
+
+    <div class="controls">
+      <div style="display:flex;gap:8px;align-items:center;margin-right:8px">
+        <div class="kicker">Theme</div>
+        <button class="btn" data-theme="a">A</button>
+        <button class="btn" data-theme="b">B</button>
+        <button class="btn" data-theme="c">C</button>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="kicker">Font</div>
+        <button class="btn" data-font="poppins">Poppins</button>
+        <button class="btn" data-font="inter">Inter</button>
+        <button class="btn" data-font="playfair">Playfair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <main>
+    <section class="section container">
+
+      <h1>Our Vision & Mission</h1>
+
+      <!-- Vision -->
+      <h2 style="margin-top:30px">Our Vision</h2>
+      <p>
+        To become a leading global platform that empowers individuals to achieve financial freedom  
+        by making passive income trading accessible, reliable, and sustainable for everyone.
+      </p>
+
+      <!-- Mission -->
+      <h2 style="margin-top:30px">Our Mission</h2>
+      <p>
+        At ZIFX, our mission is driven by three core principles:
+      </p>
+
+      <!-- Mission Points -->
+      <ul class="muted" style="margin-top:12px">
+        <li>
+          <strong>1. Accessibility for All</strong><br>
+          We provide a simplified pathway for individuals—regardless of their background or trading experience—
+          to benefit from opportunities in forex and cryptocurrency markets.
+        </li>
+
+        <li style="margin-top:14px">
+          <strong>2. Sustainable and Consistent Growth</strong><br>
+          Our trading approach focuses on disciplined risk management, adaptive strategies,  
+          and long-term performance to deliver stable monthly returns.
+        </li>
+
+        <li style="margin-top:14px">
+          <strong>3. Trust, Transparency & Reliability</strong><br>
+          We aim to build long-lasting client relationships through open communication,  
+          responsible trading practices, and strict safeguarding of investor funds.
+        </li>
+      </ul>
+
+      <p style="margin-top:22px">
+        ZIFX continues to push forward with the goal of helping our investors stop trading time for money  
+        —and start experiencing genuine financial independence.
+      </p>
+
+      <div style="margin-top:40px" class="hero-card">
+        <h3 style="margin:0">Your Financial Freedom Starts Here</h3>
+        <p class="muted">Explore our investment plans and start your journey today.</p>
+        <div class="cta">
+          <a class="btn-primary" href="plan.html">View Plans</a>
+          <a class="btn-secondary" href="how.html">How It Works</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • 
+      <a href="contact.html" style="color:var(--muted)">Contact</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/theme.js"></script>
+</body>
+</html>
