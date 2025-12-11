@@ -3,61 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ZIFX — Strategy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>ZIFX — Trading Strategy Overview</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header class="topbar-wrap">
-    <div class="topbar container">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="ZIFX logo" />
-        <div class="brand-text">
-          <div class="brand-title">ZIFX</div>
-          <div class="brand-sub">stop trading time for money</div>
-        </div>
-      </div>
-      <nav class="controls">
-        <div class="control-group">
-          <a class="btn" href="index.html">Home</a>
-          <a class="btn" href="strategy.html">Strategy</a>
-          <a class="btn" href="plan.html">Plans</a>
-        </div>
-      </nav>
+
+  <!-- TOPBAR -->
+  <div class="container topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="ZIFX logo" />
+      <div style="font-weight:700">ZIFX</div>
+      <div style="color:var(--muted);margin-left:10px">stop trading time for money</div>
     </div>
-  </header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <h1>Trading Strategy Overview</h1>
-
-        <h2>1. Multi-Market Approach</h2>
-        <p>ZIFX trades across forex and cryptocurrency to diversify and capture opportunities in different market regimes.</p>
-
-        <h2>2. Technical & Fundamental Analysis</h2>
-        <p>We use a blend of indicators, price-action, and catalysts to inform trades.</p>
-
-        <h2>3. Risk-Controlled Position Sizing</h2>
-        <p>Defined stop-loss, drawdown targets, and calculated lot sizing to protect capital.</p>
-
-        <h2>4. Adaptive Strategy Model</h2>
-        <p>Strategies adjust to volatility, trending vs sideways markets, and major events.</p>
-
-        <h2>5. Low-to-Mid Risk Approach</h2>
-        <p>Prioritise capital preservation — avoid high-risk, “all-in”, revenge trading.</p>
-
-        <h2>6. Consistent Monthly Performance</h2>
-        <p>Target: 3–8% monthly returns through disciplined execution and risk control.</p>
+    <div class="controls">
+      <div style="display:flex;gap:8px;align-items:center;margin-right:8px">
+        <div class="kicker">Theme</div>
+        <button class="btn" data-theme="a">A</button>
+        <button class="btn" data-theme="b">B</button>
+        <button class="btn" data-theme="c">C</button>
       </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="kicker">Font</div>
+        <button class="btn" data-font="poppins">Poppins</button>
+        <button class="btn" data-font="inter">Inter</button>
+        <button class="btn" data-font="playfair">Playfair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="section container">
+
+      <h1>Trading Strategy Overview</h1>
+      <p class="muted">A disciplined, data-driven, and adaptive trading framework designed to protect capital and generate steady returns.</p>
+
+      <div style="margin-top:30px">
+        <h2>1. Multi-Market Approach</h2>
+        <p>
+          ZIFX trades in both the forex and cryptocurrency markets to maximize opportunities and diversify risk.  
+          This approach allows us to:
+        </p>
+        <ul class="muted">
+          <li>Capture profits in trending and ranging markets</li>
+          <li>Reduce overexposure to a single asset</li>
+          <li>Adapt to fast-moving market conditions</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:30px">
+        <h2>2. Technical & Fundamental Analysis</h2>
+        <p>Our strategies combine multiple forms of analysis:</p>
+        <ul class="muted">
+          <li>Technical indicators (market structure, momentum tools, trend lines)</li>
+          <li>Price action insights and behavioural patterns</li>
+          <li>Fundamental catalysts such as economic news and global sentiment</li>
+        </ul>
+        <p>This ensures calculated decision-making rather than emotional or impulsive trades.</p>
+      </div>
+
+      <div style="margin-top:30px">
+        <h2>3. Risk-Controlled Position Sizing</h2>
+        <p>
+          We execute trades using controlled and predefined risk levels.  
+          Every position follows strict rules:
+        </p>
+        <ul class="muted">
+          <li>Defined stop-loss levels</li>
+          <li>Clear drawdown limits</li>
+          <li>Structured lot sizes based on volatility & market conditions</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:30px">
+        <h2>4. Adaptive Strategy Model</h2>
+        <p>Markets evolve—and so do we. Our strategy adapts to:</p>
+        <ul class="muted">
+          <li>High volatility or low volume conditions</li>
+          <li>Trending vs sideways markets</li>
+          <li>News-sensitive environments</li>
+          <li>Market sentiment shifts</li>
+        </ul>
+        <p>This adaptability ensures more consistent performance in different environments.</p>
+      </div>
+
+      <div style="margin-top:30px">
+        <h2>5. Low-to-Mid Risk Philosophy</h2>
+        <p>Our objective is long-term stability, not gambling. We strictly avoid:</p>
+        <ul class="muted">
+          <li>Martingale strategies</li>
+          <li>Over-leveraging</li>
+          <li>“All-in” trading behaviour</li>
+          <li>Revenge trading</li>
+          <li>Emotional decision-making</li>
+        </ul>
+        <p>Capital protection comes first — profits second.</p>
+      </div>
+
+      <div style="margin-top:30px">
+        <h2>6. Consistent Monthly Performance</h2>
+        <p>
+          Through disciplined execution and strategic diversification,  
+          ZIFX targets <strong>3–8% monthly returns</strong> depending on market conditions.
+        </p>
+      </div>
+
+      <div class="hero-card" style="margin-top:40px">
+        <h3 style="margin:0">Grow Your Wealth with Confidence</h3>
+        <p class="muted">Explore how you can start earning passive income today.</p>
+        <div class="cta">
+          <a class="btn-primary" href="plan.html">View Plans</a>
+          <a class="btn-secondary" href="how.html">How It Works</a>
+        </div>
+      </div>
+
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">© <span id="year5"></span> ZIFX.MY</div>
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • 
+      <a href="contact.html" style="color:var(--muted)">Contact</a>
+    </div>
   </footer>
 
-  <script>document.getElementById('year5').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/theme.js"></script>
 </body>
 </html>
