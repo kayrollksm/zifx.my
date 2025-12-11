@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZIFX — Investment Plans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar-wrap">
+    <div class="topbar container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="ZIFX logo" />
+        <div class="brand-text">
+          <div class="brand-title">ZIFX</div>
+          <div class="brand-sub">stop trading time for money</div>
+        </div>
+      </div>
+      <nav class="controls">
+        <div class="control-group">
+          <a class="btn" href="index.html">Home</a>
+          <a class="btn" href="plan.html">Plans</a>
+          <a class="btn" href="risk.html">Risk</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Investment Plans & Monthly Profit Packages</h1>
+
+        <h2>Standard Investment Plan</h2>
+        <ul>
+          <li>Minimum Investment: RM1,000</li>
+          <li>Projected Monthly Return: 3% – 5%</li>
+          <li>Risk Level: Low</li>
+          <li>Lock-In Period: 12 months</li>
+        </ul>
+
+        <h2>Growth Investment Plan</h2>
+        <ul>
+          <li>Minimum Investment: RM5,000</li>
+          <li>Projected Monthly Return: 4% – 7%</li>
+          <li>Risk Level: Low to Mid</li>
+          <li>Lock-In Period: 12 months</li>
+        </ul>
+
+        <h2>Premium Investment Plan</h2>
+        <ul>
+          <li>Minimum Investment: RM10,000</li>
+          <li>Projected Monthly Return: 5% – 8%</li>
+          <li>Risk Level: Mid</li>
+          <li>Lock-In Period: 12 months</li>
+        </ul>
+
+        <h3>Additional Terms</h3>
+        <p>Compounding option available. Early withdrawal before 12 months subject to 20% fee. Funds routed via regulated brokers.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year6"></span> ZIFX.MY</div>
+  </footer>
+
+  <script>document.getElementById('year6').textContent = new Date().getFullYear();</script>
+  <script src="assets/theme.js"></script>
+</body>
+</html>
