@@ -1,26 +1,100 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ZIFX — Background</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css"></head><body>
-<div class="container topbar">
-  <div class="brand">
-    <img src="assets/logo.svg" alt="logo" />
-    <div style="font-weight:700">ZIFX</div>
-  </div>
-  <div class="controls">
-    <a class="btn" href="index.html">Home</a>
-  </div>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZIFX — Background</title>
 
-<main class="container">
-  <h1>ZIFX Background</h1>
-  <p><strong>ZIFX was created with one clear mission:</strong> to provide a smarter, safer, and more accessible pathway for individuals to grow their wealth through passive income trading.</p>
-  <p>In today’s fast-moving financial world, many people struggle to balance their time and commitments. ZIFX was established to bridge that gap—allowing investors to benefit from opportunities in forex and cryptocurrency trading without needing technical knowledge.</p>
-  <p>Built on transparency, disciplined risk management, and strategic trading, ZIFX focuses on sustainable growth rather than high-risk speculation. We combine market expertise with a structured, low-to-mid-risk approach to make passive income achievable.</p>
-</main>
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-<footer class="footer"><div class="container">© <span id="year2"></span> ZIFX</div></footer>
-<script>document.getElementById('year2').textContent=new Date().getFullYear();</script>
-<script src="assets/theme.js"></script>
-</body></html>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <div class="container topbar">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="ZIFX logo" />
+      <div style="font-weight:700">ZIFX</div>
+      <div style="color:var(--muted);margin-left:10px">stop trading time for money</div>
+    </div>
+
+    <div class="controls">
+      <div style="display:flex;gap:8px;align-items:center;margin-right:8px">
+        <div class="kicker">Theme</div>
+        <button class="btn" data-theme="a">A</button>
+        <button class="btn" data-theme="b">B</button>
+        <button class="btn" data-theme="c">C</button>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="kicker">Font</div>
+        <button class="btn" data-font="poppins">Poppins</button>
+        <button class="btn" data-font="inter">Inter</button>
+        <button class="btn" data-font="playfair">Playfair</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section container">
+      <h1>ZIFX Background</h1>
+
+      <p>
+        ZIFX was created with one clear mission: to provide a smarter, safer, and more accessible pathway for individuals to grow their wealth through passive income trading.
+      </p>
+
+      <p>
+        In today’s fast-moving financial world, many people struggle to balance their time, commitments, and the complexity of financial markets. ZIFX was established to bridge that gap—allowing investors to benefit from the opportunities in forex and cryptocurrency trading without needing technical knowledge, long hours of analysis, or experience.
+      </p>
+
+      <p>
+        Built on a foundation of transparency, disciplined risk management, and strategic trading, ZIFX focuses on sustainable growth rather than high-risk speculation. Our trading systems and strategies are designed to perform consistently in both stable and volatile market conditions.
+      </p>
+
+      <p>
+        ZIFX operates with the belief that everyone deserves access to intelligent wealth-building tools, not just experienced traders. By combining market expertise with a structured, low-to-mid-risk approach, we make passive income achievable for everyday investors.
+      </p>
+
+      <p>
+        Today, ZIFX stands as a forward-thinking trading platform dedicated to helping investors achieve financial independence—one smart decision at a time.
+      </p>
+
+      <hr style="margin:28px 0">
+
+      <h2>Core Principles</h2>
+      <ul class="muted">
+        <li><strong>Transparency:</strong> Clear, timely reports and open communication about strategy and performance.</li>
+        <li><strong>Risk Management:</strong> Strict controls to protect capital and limit drawdowns.</li>
+        <li><strong>Accessibility:</strong> Simple onboarding, low minimums, and straightforward payout options.</li>
+      </ul>
+
+      <h2 style="margin-top:22px">How We Serve Investors</h2>
+      <ol class="muted">
+        <li><strong>Managed Accounts:</strong> Expert traders & EAs run the accounts—investors don’t need to trade themselves.</li>
+        <li><strong>Regular Reporting:</strong> Monthly performance summaries and clear profit payout options.</li>
+        <li><strong>Flexible Plans:</strong> Multiple plans to suit beginner and experienced investors with transparent fees and lock-in terms.</li>
+      </ol>
+
+      <div style="margin-top:26px" class="hero-card">
+        <h3 style="margin:0">Start Building Passive Income</h3>
+        <p class="muted">If you're ready to stop trading time for money, choose a plan that's right for you and let ZIFX handle the rest.</p>
+        <div class="cta">
+          <a class="btn-primary" href="plan.html">View Plans</a>
+          <a class="btn-secondary" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • <a href="contact.html" style="color:var(--muted)">Contact</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/theme.js"></script>
+</body>
+</html>
