@@ -4,70 +4,107 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ZIFX — How It Works</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <header class="topbar-wrap">
-    <div class="topbar container">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="ZIFX logo" />
-        <div class="brand-text">
-          <div class="brand-title">ZIFX</div>
-          <div class="brand-sub">stop trading time for money</div>
-        </div>
-      </div>
-      <nav class="controls">
-        <div class="control-group">
-          <a class="btn" href="index.html">Home</a>
-          <a class="btn" href="how.html">How It Works</a>
-          <a class="btn" href="strategy.html">Strategy</a>
-        </div>
-      </nav>
+
+  <!-- TOPBAR -->
+  <div class="container topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="ZIFX logo" />
+      <div style="font-weight:700">ZIFX</div>
+      <div style="color:var(--muted);margin-left:10px">stop trading time for money</div>
     </div>
-  </header>
 
+    <div class="controls">
+      <div style="display:flex;gap:8px;align-items:center;margin-right:8px">
+        <div class="kicker">Theme</div>
+        <button class="btn" data-theme="a">A</button>
+        <button class="btn" data-theme="b">B</button>
+        <button class="btn" data-theme="c">C</button>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="kicker">Font</div>
+        <button class="btn" data-font="poppins">Poppins</button>
+        <button class="btn" data-font="inter">Inter</button>
+        <button class="btn" data-font="playfair">Playfair</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
   <main>
-    <section class="section">
-      <div class="container">
-        <h1>How ZIFX Works</h1>
-        <p>ZIFX simplifies the process of earning passive income through professionally managed trading. Our system is designed to ensure transparency, ease of use, and consistent results for every investor.</p>
+    <section class="section container">
+      <h1>How ZIFX Works</h1>
+      <p class="muted">A simple, transparent process so you can earn passive income while we manage the trades.</p>
 
-        <h2>1. Investor Deposits Capital</h2>
-        <p>You begin by choosing your preferred investment amount. Once deposited, your funds are securely allocated into our managed trading system.</p>
+      <ol class="how-steps" style="margin-top:24px">
+        <li>
+          <h3>1. Investor Deposits Capital</h3>
+          <p>Your journey begins by choosing an investment amount and depositing funds. All deposits are secure and allocated to your managed account.</p>
+        </li>
 
-        <h2>2. Funds Are Strategically Managed</h2>
-        <p>Your capital is traded using our structured, low-to-mid risk strategies across the forex and cryptocurrency markets.</p>
-        <ul>
-          <li>Smart trade entry and exit points</li>
-          <li>Risk-controlled position sizing</li>
-          <li>Market-driven strategies</li>
-          <li>Preserving capital while targeting steady profits</li>
-        </ul>
+        <li>
+          <h3>2. Funds Are Strategically Managed</h3>
+          <p>We trade your capital using structured low-to-mid risk strategies across forex and cryptocurrency markets. Our focus:</p>
+          <ul class="muted">
+            <li>Smart trade entry & exit</li>
+            <li>Risk-controlled position sizing</li>
+            <li>Market-driven strategy selection</li>
+            <li>Capital preservation</li>
+          </ul>
+        </li>
 
-        <h2>3. Continuous Monitoring & Risk Management</h2>
-        <p>Daily analysis, controlled drawdown rules, and adaptive strategies keep risks managed.</p>
+        <li>
+          <h3>3. Continuous Monitoring & Risk Management</h3>
+          <p>Every account is monitored daily. We enforce controlled drawdown limits, avoid high-risk gambles, and adapt strategies to changing conditions.</p>
+        </li>
 
-        <h2>4. Monthly Profit Generation</h2>
-        <p>Targeted monthly returns: <strong>3–8%</strong> depending on market conditions.</p>
+        <li>
+          <h3>4. Monthly Profit Generation</h3>
+          <p>Trades run through the month aiming for steady performance (3–8% depending on market conditions).</p>
+        </li>
 
-        <h2>5. Profit Payouts</h2>
-        <p>Profits are transferred monthly to your wallet or compounded into your balance per your choice.</p>
+        <li>
+          <h3>5. Profit Payouts</h3>
+          <p>At the end of each cycle, profits are either credited to your bank/wallet or auto-compounded into your trading balance—your choice.</p>
+        </li>
 
-        <h2>6. Transparent Reporting</h2>
-        <p>Investors receive clear performance updates so they always know how funds perform.</p>
+        <li>
+          <h3>6. Transparent Reporting</h3>
+          <p>Investors receive clear performance summaries and can view account activity so everything stays transparent and auditable.</p>
+        </li>
 
-        <h2>7. You Earn While We Trade</h2>
-        <p>Your job: relax. ZIFX handles the trading.</p>
+        <li>
+          <h3>7. You Earn While We Trade</h3>
+          <p>Your only job: relax. We handle the trading, risk, and reporting so your capital can grow passively.</p>
+        </li>
+      </ol>
+
+      <div class="hero-card" style="margin-top:30px">
+        <h3 style="margin:0">Ready to Begin?</h3>
+        <p class="muted">Choose a plan that fits your goals and start your passive income journey with ZIFX.</p>
+        <div class="cta">
+          <a class="btn-primary" href="plan.html">See Investment Plans</a>
+          <a class="btn-secondary" href="contact.html">Contact Us</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">© <span id="year4"></span> ZIFX.MY</div>
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • <a href="contact.html" style="color:var(--muted)">Contact</a>
+    </div>
   </footer>
 
-  <script>document.getElementById('year4').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/theme.js"></script>
 </body>
 </html>
