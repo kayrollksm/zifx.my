@@ -1,100 +1,67 @@
 // assets/theme.js
-(() => {
-  const themeBtns = document.querySelectorAll('[data-theme]');
-  const fontBtns  = document.querySelectorAll('[data-font]');
+(function(){
+  const root = document.body;
+  const themeButtons = document.querySelectorAll('[data-theme]');
+  const fontButtons = document.querySelectorAll('[data-font]');
+  const cards = document.querySelectorAll('.animate-card');
 
-  const DEFAULT_THEME = 'a';
-  const DEFAULT_FONT  = 'poppins';
+  const LS_THEME = 'zifx_theme';
+  const LS_FONT = 'zifx_font';
 
-  const savedTheme = localStorage.getItem('zifx-theme') || DEFAULT_THEME;
-  const savedFont  = localStorage.getItem('zifx-font')  || DEFAULT_FONT;
+  // load saved
+  const savedTheme = localStorage.getItem(LS_THEME) || 'a';
+  const savedFont = localStorage.getItem(LS_FONT) || 'poppins';
 
+  // apply initial
   applyTheme(savedTheme);
   applyFont(savedFont);
-  highlightActive();
 
-  themeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const t = btn.dataset.theme;
+  // buttons
+  themeButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      const t = btn.getAttribute('data-theme');
       applyTheme(t);
-      localStorage.setItem('zifx-theme', t);
-      highlightActive();
+      localStorage.setItem(LS_THEME, t);
     });
   });
 
-  fontBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const f = btn.dataset.font;
+  fontButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      const f = btn.getAttribute('data-font');
       applyFont(f);
-      localStorage.setItem('zifx-font', f);
-      highlightActive();
+      localStorage.setItem(LS_FONT, f);
     });
   });
 
-  function applyTheme(name) {
+  function applyTheme(t){
+    // remove classes then set body class
     document.body.classList.remove('theme-a','theme-b','theme-c');
-    document.body.classList.add(`theme-${name}`);
+    document.body.classList.add('theme-'+(t||'a'));
+    // set aria-pressed
+    themeButtons.forEach(b=>{
+      b.setAttribute('aria-pressed', b.getAttribute('data-theme')===t ? 'true' : 'false');
+      b.classList.toggle('active', b.getAttribute('data-theme')===t);
+    });
+    // set CSS accent by theme (optional further tweaks)
   }
 
-  function applyFont(name) {
-    // ❤️ INI YANG PENTING
-    document.body.setAttribute("data-font", name);
+  function applyFont(f){
+    document.body.setAttribute('data-font', f);
+    fontButtons.forEach(b=>{
+      b.classList.toggle('active', b.getAttribute('data-font')===f);
+    });
   }
 
-  function highlightActive() {
-    const curTheme = localStorage.getItem('zifx-theme') || DEFAULT_THEME;
-    const curFont  = localStorage.getItem('zifx-font')  || DEFAULT_FONT;
-
-    themeBtns.forEach(b => b.classList.toggle('active', b.dataset.theme === curTheme));
-    fontBtns.forEach(b => b.classList.toggle('active', b.dataset.font === curFont));
+  // reveal animation for cards on load + on scroll
+  function revealCards(){
+    cards.forEach((c,i)=>{
+      const rect = c.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 80){
+        setTimeout(()=> c.classList.add('show'), i*80);
+      }
+    });
   }
-})();
+  window.addEventListener('load', revealCards);
+  window.addEventListener('scroll', revealCards);
 
-// theme.js - add this to bottom of the file
-(() => {
-  const themeButtons = document.querySelectorAll('.btn[data-theme]');
-  const fontButtons  = document.querySelectorAll('.btn[data-font]');
-
-  function setActive(list, clicked) {
-    list.forEach(b => b.classList.toggle('active', b === clicked));
-  }
-
-  themeButtons.forEach(b => {
-    b.addEventListener('click', () => setActive(themeButtons, b));
-  });
-  fontButtons.forEach(b => {
-    b.addEventListener('click', () => setActive(fontButtons, b));
-  });
-})();
-
-// assets/theme.js
-(() => {
-  const root = document.documentElement;
-
-  function applyTheme(name) {
-    document.body.classList.remove('body--theme-a','body--theme-b','body--theme-c');
-    document.body.classList.add(`body--theme-${name}`);
-    localStorage.setItem('zifx-theme', name);
-  }
-
-  function applyFont(name) {
-    document.body.setAttribute('data-font', name);
-    localStorage.setItem('zifx-font', name);
-  }
-
-  // restore saved prefs
-  const savedTheme = localStorage.getItem('zifx-theme') || 'b';
-  const savedFont = localStorage.getItem('zifx-font') || 'poppins';
-  applyTheme(savedTheme);
-  applyFont(savedFont);
-
-  // wire up buttons
-  document.addEventListener('click', (e) => {
-    const t = e.target;
-    if (t.matches('[data-theme]')) {
-      applyTheme(t.getAttribute('data-theme'));
-    } else if (t.matches('[data-font]')) {
-      applyFont(t.getAttribute('data-font'));
-    }
-  });
 })();
