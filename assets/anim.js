@@ -124,3 +124,30 @@
     autoStaggerChildren();
   });
 })();
+
+// assets/anim.js
+// simple reveal on scroll + subtle CTA pulse
+(function(){
+  const reveals = document.querySelectorAll('.reveal');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // if you want one-time reveal:
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(r => obs.observe(r));
+
+  // CTA button micro animation on load
+  window.addEventListener('load', () => {
+    const btn = document.querySelector('.btn-primary');
+    if (!btn) return;
+    // small entrance pulse
+    btn.classList.add('btn-entrance');
+    setTimeout(() => btn.classList.remove('btn-entrance'), 1200);
+  });
+})();
