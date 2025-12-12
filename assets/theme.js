@@ -1,6 +1,4 @@
-// assets/theme.js
-(function(){
-  const root = document.body;
+document.addEventListener('DOMContentLoaded', function(){
   const themeButtons = document.querySelectorAll('[data-theme]');
   const fontButtons = document.querySelectorAll('[data-font]');
   const cards = document.querySelectorAll('.animate-card');
@@ -8,15 +6,13 @@
   const LS_THEME = 'zifx_theme';
   const LS_FONT = 'zifx_font';
 
-  // load saved
+  // load saved values
   const savedTheme = localStorage.getItem(LS_THEME) || 'a';
   const savedFont = localStorage.getItem(LS_FONT) || 'poppins';
 
-  // apply initial
   applyTheme(savedTheme);
   applyFont(savedFont);
 
-  // buttons
   themeButtons.forEach(btn=>{
     btn.addEventListener('click', ()=> {
       const t = btn.getAttribute('data-theme');
@@ -34,15 +30,15 @@
   });
 
   function applyTheme(t){
-    // remove classes then set body class
     document.body.classList.remove('theme-a','theme-b','theme-c');
     document.body.classList.add('theme-'+(t||'a'));
-    // set aria-pressed
+
+    // update aria pressed and active class
     themeButtons.forEach(b=>{
-      b.setAttribute('aria-pressed', b.getAttribute('data-theme')===t ? 'true' : 'false');
-      b.classList.toggle('active', b.getAttribute('data-theme')===t);
+      const is = b.getAttribute('data-theme')===t;
+      b.setAttribute('aria-pressed', is ? 'true' : 'false');
+      b.classList.toggle('active', is);
     });
-    // set CSS accent by theme (optional further tweaks)
   }
 
   function applyFont(f){
@@ -63,5 +59,6 @@
   }
   window.addEventListener('load', revealCards);
   window.addEventListener('scroll', revealCards);
-
-})();
+  // also reveal once now (in case already visible)
+  revealCards();
+});
