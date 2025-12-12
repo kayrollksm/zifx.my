@@ -1,110 +1,68 @@
-:root{
-  --bg:#071018;
-  --muted:#9aa6ad;
-  --text:#e6f0f4;
-  --card:rgba(18,30,36,0.35);
-  --accent:#26c3a3; /* default green */
-  --accent-2:#10b0a9;
-  --glass: rgba(255,255,255,0.02);
-  --shadow: 0 18px 40px rgba(2,10,14,0.55);
-  --max-width:1100px;
+/* --- small visual tweaks: logo size, topbar spacing, hero background logo --- */
+
+/* topbar / brand tweaks */
+.brand-logo{
+  width:36px;               /* kecilkan sedikit */
+  height:36px;
+  border-radius:8px;
+  object-fit:contain;
+  box-shadow:0 6px 20px rgba(0,0,0,0.45);
 }
 
-/* Theme B */
-body.theme-b { --bg:#071226; --muted:#9fb0b8; --card:rgba(28,40,48,0.35); --accent:#3aa5ff; --accent-2:#1f8bd6;}
+/* hide the small tagline on very narrow screens is already there,
+   but let's keep brand-text compact on tablets */
+.brand-text { line-height:1; }
+.brand-title{ font-size:16px; }
+.brand-sub{ font-size:12px; color:var(--muted); }
 
-/* Theme C (warmer accent) */
-body.theme-c { --bg:#0b1721; --muted:#b1c0c8; --card:rgba(16,22,26,0.35); --accent:#ff6f45; --accent-2:#ff8a5a;}
+/* stop any floating vertical tagline on the right (defensive) */
+.side-tagline, .floating-tagline { display:none !important; }
 
-/* Fonts by data attribute (JS will set body[data-font]) */
-body[data-font="poppins"]{ font-family:'Poppins',system-ui,-apple-system,"Segoe UI",Roboto, "Helvetica Neue", Arial; }
-body[data-font="inter"]{ font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto, "Helvetica Neue", Arial; }
-body[data-font="playfair"]{ font-family:'Playfair Display',serif; }
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  min-height:100%;
-  background:linear-gradient(180deg,var(--bg) 0%, #061019 60%);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  transition:background .5s ease,color .3s ease;
-  font-size:16px;
-  line-height:1.6;
+/* reduce huge background logo effect and center it */
+.hero::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  width: 560px;                /* logo size — ubah ikut suka (desktop) */
+  height: 180px;
+  background-image: url('../assets/logo.png'); /* uses same logo file */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.06;               /* sangat subtle */
+  filter: blur(0.6px) saturate(70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+/* push hero text above the soft logo (ensure content above) */
+.hero-inner{ position: relative; z-index: 2; }
 
-/* Topbar */
-.topbar{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(0,0,0,0.25), transparent);backdrop-filter: blur(6px);padding:14px 0}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
-.brand-logo{width:44px;height:44px;object-fit:contain;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.6)}
-.brand-title{font-weight:700;letter-spacing:0.6px}
-.brand-sub{font-size:13px;color:var(--muted);margin-top:2px}
-
-/* Controls */
-.controls{display:flex;gap:12px;align-items:center}
-.control-group{display:flex;gap:6px;align-items:center;padding:6px 8px}
-.kicker{color:var(--muted);font-size:14px;margin-right:6px}
-.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600;transition:all .18s}
-.btn.small{padding:6px 8px;font-size:14px}
-.btn[data-theme][aria-pressed="true"], .btn.small.active{background:var(--accent);color:#021617;box-shadow:0 6px 18px rgba(2,10,14,0.35);}
-
-/* Hero */
-.hero{padding:64px 0 60px;position:relative;overflow:hidden}
-.hero-inner{text-align:center;padding:40px 0}
-.hero-title{font-size:44px;margin:10px 0 14px;letter-spacing:0.2px;font-weight:700}
-.hero-sub{max-width:820px;margin:0 auto;color:var(--muted);font-size:16px}
-
-/* hero card */
-.hero-card{width:100%;max-width:760px;margin:36px auto 0;padding:36px 40px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--shadow);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03);transform:translateY(0);transition:transform .45s cubic-bezier(.18,.9,.3,1), box-shadow .3s}
-.hero-card:hover{transform:translateY(-6px)}
-.card-title{margin:0 0 8px;font-weight:700}
-.card-text{color:var(--muted);margin-bottom:18px}
-
-/* CTA */
-.cta{display:flex;gap:12px;justify-content:center;align-items:center}
-.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#021617;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(2,10,14,0.5);transition:transform .12s ease, box-shadow .12s ease}
-.btn-primary:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(2,10,14,0.6)}
-.btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:10px 18px;border-radius:10px;text-decoration:none}
-
-/* Grid & cards */
-.section{padding:64px 0}
-.section-title{font-size:28px;margin-bottom:8px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.card{padding:22px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 20px rgba(2,8,12,0.4)}
-.card h3{margin:0 0 8px}
-.muted{color:var(--muted);font-size:15px}
-
-/* Footer */
-.footer{padding:34px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
-
-/* Responsive */
+/* smaller on tablet/phone */
 @media (max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .hero-title{font-size:36px}
+  .hero::before{ width:420px; height:140px; top:18px; opacity:0.06; }
+  .brand-logo{ width:34px; height:34px; }
 }
 @media (max-width:600px){
-  .grid{grid-template-columns:1fr}
-  .topbar-inner{padding:0 6px}
-  .brand-sub{display:none}
-  .hero-title{font-size:28px}
-  .hero-card{padding:20px}
-  .controls{gap:6px}
+  .hero::before{ width:320px; height:110px; top:8px; opacity:0.05; }
+  .brand-sub{ display:none; } /* already */
+  .topbar-inner{ padding:6px 12px; }
 }
 
-/* Small animation for cards */
-.animate-card{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
-.animate-card.show{opacity:1;transform:translateY(0)}
-
-/* subtle background pattern */
-.hero::after{
-  content:"";
-  position:absolute;left:0;right:0;top:0;height:360px;
-  background:radial-gradient(circle at 20% 10%, rgba(255,255,255,0.02) 0%, transparent 12%),
-             radial-gradient(circle at 80% 80%, rgba(255,255,255,0.01) 0%, transparent 15%);
-  pointer-events:none;
+/* center hero card even more and reduce huge shadow */
+.hero-card{
+  margin-top:28px;
+  box-shadow: 0 18px 36px rgba(2,10,14,0.45);
+  max-width:760px;
 }
+
+/* ensure theme control row sits aligned to right properly */
+.controls{ align-items:center; gap:12px; }
+
+/* defensive: if some page added giant background image as inline <img> show:none */
+.hero > img.bg-logo, .hero .bg-large{ display:none !important; }
+
+/* slight polish for CTA focus state */
+.btn-primary:focus{ outline: 3px solid rgba(255,255,255,0.06); outline-offset: 4px; }
