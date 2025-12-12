@@ -49,3 +49,20 @@
     fontBtns.forEach(b => b.classList.toggle('active', b.dataset.font === curFont));
   }
 })();
+
+// theme.js - add this to bottom of the file
+(() => {
+  const themeButtons = document.querySelectorAll('.btn[data-theme]');
+  const fontButtons  = document.querySelectorAll('.btn[data-font]');
+
+  function setActive(list, clicked) {
+    list.forEach(b => b.classList.toggle('active', b === clicked));
+  }
+
+  themeButtons.forEach(b => {
+    b.addEventListener('click', () => setActive(themeButtons, b));
+  });
+  fontButtons.forEach(b => {
+    b.addEventListener('click', () => setActive(fontButtons, b));
+  });
+})();
