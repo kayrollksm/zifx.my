@@ -1,52 +1,47 @@
-// assets/theme.js
+// theme.js - simple theme & font switcher with persistence
 (function(){
-  const themeButtons = document.querySelectorAll('[data-theme]');
-  const fontButtons = document.querySelectorAll('[data-font]');
   const body = document.body;
+  const themeBtns = document.querySelectorAll('[data-theme]');
+  const fontBtns = document.querySelectorAll('[data-font]');
 
   // load saved
   const savedTheme = localStorage.getItem('zifx_theme') || 'a';
   const savedFont = localStorage.getItem('zifx_font') || 'poppins';
 
-  function applyTheme(name){
-    // remove theme classes
-    body.classList.remove('theme-b','theme-c');
-    if(name === 'b') body.classList.add('theme-b');
-    if(name === 'c') body.classList.add('theme-c');
-    // update active state
-    themeButtons.forEach(b=> b.classList.toggle('active', b.dataset.theme === name));
-    localStorage.setItem('zifx_theme', name);
+  // apply
+  body.setAttribute('data-theme', savedTheme);
+  body.setAttribute('data-font', savedFont);
+  markActive();
+
+  // click handlers
+  themeBtns.forEach(b => b.addEventListener('click', e => {
+    const t = b.dataset.theme;
+    body.setAttribute('data-theme', t);
+    localStorage.setItem('zifx_theme', t);
+    markActive();
+  }));
+
+  fontBtns.forEach(b => b.addEventListener('click', e => {
+    const f = b.dataset.font;
+    body.setAttribute('data-font', f);
+    localStorage.setItem('zifx_font', f);
+    markActive();
+  }));
+
+  function markActive(){
+    // theme
+    themeBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === body.getAttribute('data-theme'));
+    });
+    // font
+    fontBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.font === body.getAttribute('data-font'));
+    });
   }
 
-  function applyFont(name){
-    // set font family on root
-    let fam = getComputedStyle(document.documentElement).getPropertyValue('--font-sans');
-    if(name === 'poppins') fam = 'Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
-    if(name === 'inter') fam = 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
-    if(name === 'playfair') fam = '"Playfair Display", Georgia, serif';
-
-    document.documentElement.style.setProperty('--font-sans', fam);
-    fontButtons.forEach(b=> b.classList.toggle('active', b.dataset.font === name));
-    localStorage.setItem('zifx_font', name);
-  }
-
-  // wire buttons
-  themeButtons.forEach(btn => {
-    btn.addEventListener('click', ()=> applyTheme(btn.dataset.theme));
-  });
-
-  fontButtons.forEach(btn => {
-    btn.addEventListener('click', ()=> applyFont(btn.dataset.font));
-  });
-
-  // init
-  applyTheme(savedTheme);
-  applyFont(savedFont);
-
-  // quick accessibility: keyboard shortcuts
-  window.addEventListener('keydown', (e)=>{
-    if(e.altKey && e.key === '1') applyTheme('a');
-    if(e.altKey && e.key === '2') applyTheme('b');
-    if(e.altKey && e.key === '3') applyTheme('c');
+  // small: animate nav-cta when in view on load
+  window.addEventListener('load', () => {
+    const cta = document.querySelector('.nav-cta');
+    if(cta) cta.animate([{transform:'translateY(6px)'},{transform:'translateY(0)'}],{duration:700,fill:'forwards',easing:'cubic-bezier(.2,.9,.3,1)'});
   });
 })();
