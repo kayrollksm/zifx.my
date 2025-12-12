@@ -1,40 +1,52 @@
+// assets/theme.js
 (function(){
   const themeButtons = document.querySelectorAll('[data-theme]');
   const fontButtons = document.querySelectorAll('[data-font]');
-  const root = document.documentElement;
+  const body = document.body;
 
-  const THEMES = { a: 'theme-a', b: 'theme-b', c: 'theme-c' };
-  const FONTS = {
-    poppins: `"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial`,
-    inter: `"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial`,
-    playfair: `"Playfair Display", "Georgia", serif`
-  };
+  // load saved
+  const savedTheme = localStorage.getItem('zifx_theme') || 'a';
+  const savedFont = localStorage.getItem('zifx_font') || 'poppins';
 
-  function applyTheme(key){
-    Object.values(THEMES).forEach(cls => root.classList.remove(cls));
-    const cls = THEMES[key] || THEMES.b;
-    root.classList.add(cls);
-    localStorage.setItem('zifx-theme', key);
-    themeButtons.forEach(b => b.classList.toggle('active', b.dataset.theme === key));
+  function applyTheme(name){
+    // remove theme classes
+    body.classList.remove('theme-b','theme-c');
+    if(name === 'b') body.classList.add('theme-b');
+    if(name === 'c') body.classList.add('theme-c');
+    // update active state
+    themeButtons.forEach(b=> b.classList.toggle('active', b.dataset.theme === name));
+    localStorage.setItem('zifx_theme', name);
   }
 
-  function applyFont(key){
-    const val = FONTS[key] || FONTS.poppins;
-    root.style.setProperty('--font-family', val);
-    localStorage.setItem('zifx-font', key);
-    fontButtons.forEach(b => b.classList.toggle('active', b.dataset.font === key));
+  function applyFont(name){
+    // set font family on root
+    let fam = getComputedStyle(document.documentElement).getPropertyValue('--font-sans');
+    if(name === 'poppins') fam = 'Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
+    if(name === 'inter') fam = 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial';
+    if(name === 'playfair') fam = '"Playfair Display", Georgia, serif';
+
+    document.documentElement.style.setProperty('--font-sans', fam);
+    fontButtons.forEach(b=> b.classList.toggle('active', b.dataset.font === name));
+    localStorage.setItem('zifx_font', name);
   }
 
+  // wire buttons
   themeButtons.forEach(btn => {
-    btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
-  });
-  fontButtons.forEach(btn => {
-    btn.addEventListener('click', () => applyFont(btn.dataset.font));
+    btn.addEventListener('click', ()=> applyTheme(btn.dataset.theme));
   });
 
-  const savedTheme = localStorage.getItem('zifx-theme') || 'b';
-  const savedFont  = localStorage.getItem('zifx-font') || 'poppins';
+  fontButtons.forEach(btn => {
+    btn.addEventListener('click', ()=> applyFont(btn.dataset.font));
+  });
+
+  // init
   applyTheme(savedTheme);
   applyFont(savedFont);
 
+  // quick accessibility: keyboard shortcuts
+  window.addEventListener('keydown', (e)=>{
+    if(e.altKey && e.key === '1') applyTheme('a');
+    if(e.altKey && e.key === '2') applyTheme('b');
+    if(e.altKey && e.key === '3') applyTheme('c');
+  });
 })();
