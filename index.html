@@ -5,32 +5,31 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ZIFX — Stop Trading Time for Money</title>
 
-  <!-- Fonts -->
+  <!-- fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body data-theme="a" data-font="poppins">
 
-  <!-- TOPBAR -->
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="ZIFX" class="brand-logo">
+        <img src="assets/logo.png" alt="ZIFX logo" class="brand-logo" />
         <div class="brand-text">
           <div class="brand-title">ZIFX</div>
           <div class="brand-sub">stop trading time for money</div>
         </div>
       </a>
 
-      <nav class="controls">
+      <nav class="controls" aria-label="Theme and font controls">
         <div class="control-group">
           <span class="kicker">Theme</span>
-          <button class="btn small" data-theme="a">A</button>
-          <button class="btn small" data-theme="b">B</button>
-          <button class="btn small" data-theme="c">C</button>
+          <button class="btn small" data-theme="a" aria-pressed="true">A</button>
+          <button class="btn small" data-theme="b" aria-pressed="false">B</button>
+          <button class="btn small" data-theme="c" aria-pressed="false">C</button>
         </div>
+
         <div class="control-group">
           <span class="kicker">Font</span>
           <button class="btn small" data-font="poppins">Poppins</button>
@@ -41,22 +40,16 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main>
     <section class="hero">
       <div class="container hero-inner">
         <h1 class="hero-title">Financial Growth Starts Here</h1>
-        <p class="hero-sub">
-          ZIFX helps you earn passive income using proven crypto & forex strategies — relax and watch your wealth grow.
-        </p>
+        <p class="hero-sub">ZIFX helps you earn passive income using proven crypto &amp; forex strategies — sit back, relax, and watch your wealth grow.</p>
 
-        <div class="hero-card">
+        <div class="hero-card" id="heroCard">
           <h3 class="card-title">ZIFX — Stop Trading Time for Money</h3>
-          <p class="card-text">
-            Simply sit back and watch your wealth grow with
-            <strong>3–8% monthly profit</strong> credited directly to your account.
-          </p>
-          <div class="cta">
+          <p class="card-text">Simply sit back and watch your wealth grow with <strong>3–8% monthly profit</strong> credited directly to your account.</p>
+          <div class="cta" role="group" aria-label="Primary actions">
             <a class="btn-primary" href="plan.html">Get Started</a>
             <a class="btn-secondary" href="how.html">Learn More</a>
           </div>
@@ -64,38 +57,38 @@
       </div>
     </section>
 
-    <!-- WHY SECTION -->
-    <section class="section">
+    <section class="section" id="why">
       <div class="container">
         <h2 class="section-title">Why Choose ZIFX?</h2>
-        <p class="muted">Expert trading + EA automation + disciplined management = steady passive income.</p>
+        <p class="muted">Professional trading expertise + EA-assisted execution + disciplined risk management = steady monthly gains.</p>
 
         <div class="grid">
           <article class="card animate-card">
-            <h3>Low Spread & Fast Execution</h3>
-            <p class="muted">Institutional liquidity & optimized execution.</p>
+            <h3>Low Spread &amp; Fast Execution</h3>
+            <p class="muted">Trade with institutional-grade speed and optimized liquidity.</p>
           </article>
+
           <article class="card animate-card">
-            <h3>Trusted & Regulated</h3>
-            <p class="muted">Funds safeguarded with multi-layer security.</p>
+            <h3>Trusted &amp; Regulated Environment</h3>
+            <p class="muted">Your funds are safeguarded with multi-layer security &amp; compliance.</p>
           </article>
+
           <article class="card animate-card">
-            <h3>Smart Trading Tools</h3>
-            <p class="muted">Analytics, signals, automation — more profit, less stress.</p>
+            <h3>Smart Tools for Smarter Trades</h3>
+            <p class="muted">Leverage analytics, signals, and automation to maximize performance.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      © <span id="year"></span> ZIFX.MY • <a href="contact.html">Contact</a>
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • <a href="contact.html">Contact</a>
     </div>
   </footer>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="assets/theme.js"></script>
 </body>
 </html>
