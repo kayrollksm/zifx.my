@@ -12,84 +12,69 @@
 </head>
 <body>
 
-  <div class="topbar-wrap">
-    <div class="container topbar">
+  <div class="topbar">
+    <div class="container topbar-inner">
       <div class="brand">
+        <!-- make sure logo.png exists in assets/ -->
         <img src="assets/logo.png" alt="ZIFX logo" class="logo" />
         <div class="brand-text">
-          <div class="brand-title">ZIFX</div>
+          <div class="brand-name">ZIFX</div>
           <div class="brand-sub">stop trading time for money</div>
         </div>
       </div>
 
-      <nav class="nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="plan.html" class="nav-link">Plans</a>
-        <a href="how.html" class="nav-link">How It Works</a>
-        <a href="vision.html" class="nav-link">Vision</a>
-        <a href="contact.html" class="nav-cta">Get Started</a>
-      </nav>
-
-      <div class="controls">
+      <div class="controls" aria-hidden="false">
         <div class="control-group">
-          <span class="kicker">Theme</span>
-          <button class="btn small" data-theme="a">A</button>
-          <button class="btn small" data-theme="b">B</button>
-          <button class="btn small" data-theme="c">C</button>
+          <div class="kicker">Theme</div>
+          <button class="btn theme-btn" data-theme="a">A</button>
+          <button class="btn theme-btn" data-theme="b">B</button>
+          <button class="btn theme-btn" data-theme="c">C</button>
         </div>
 
         <div class="control-group">
-          <span class="kicker">Font</span>
-          <button class="btn small" data-font="poppins">Poppins</button>
-          <button class="btn small" data-font="inter">Inter</button>
-          <button class="btn small" data-font="playfair">Playfair</button>
+          <div class="kicker">Font</div>
+          <button class="btn font-btn" data-font="poppins">Poppins</button>
+          <button class="btn font-btn" data-font="inter">Inter</button>
+          <button class="btn font-btn" data-font="playfair">Playfair</button>
         </div>
       </div>
     </div>
   </div>
 
   <main>
-    <header class="hero">
-      <div class="hero-bg"></div>
+    <section class="hero">
       <div class="container hero-inner">
-        <div class="hero-intro">
-          <h1 class="hero-title">Financial Growth <span class="accent">Starts Here</span></h1>
-          <p class="hero-lead">Invest with confidence and unlock smarter profit strategies. ZIFX helps you earn passive income with managed forex & crypto strategies.</p>
-        </div>
+        <h1 class="hero-title">Financial Growth Starts Here</h1>
+        <p class="hero-sub">Invest with confidence and unlock smarter profit strategies. ZIFX helps you earn passive income with managed forex & crypto strategies.</p>
 
-        <div class="hero-card" aria-hidden="false">
+        <div class="hero-card" role="region" aria-label="hero message">
           <h3 class="card-title">ZIFX — Stop Trading Time for Money</h3>
-          <p class="muted card-desc">Simply sit back and watch your wealth grow with <strong>3–8% monthly profit</strong> credited directly to your account.</p>
+          <p class="muted">Simply sit back and watch your wealth grow with <strong>3–8% monthly profit</strong> credited directly to your account.</p>
 
+          <!-- center CTA buttons -->
           <div class="cta">
             <a class="btn-primary" href="plan.html">Get Started</a>
             <a class="btn-secondary" href="how.html">Learn More</a>
           </div>
-
-          <div class="card-footer">
-            <small class="muted">No experience required • Transparent reporting • Regulated brokers</small>
-          </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <section class="section why">
+    <section class="section" id="why">
       <div class="container">
         <h2>Why Choose ZIFX?</h2>
         <p class="muted">Professional trading expertise + EA-assisted execution + disciplined risk management = steady monthly gains.</p>
 
         <div class="grid">
-          <div class="card feature">
+          <div class="card">
             <h3>Low Spread & Fast Execution</h3>
             <p class="muted">Trade with institutional-grade speed and optimized liquidity.</p>
           </div>
-
-          <div class="card feature">
+          <div class="card">
             <h3>Trusted & Regulated Environment</h3>
             <p class="muted">Your funds are safeguarded with multi-layer security & compliance.</p>
           </div>
-
-          <div class="card feature">
+          <div class="card">
             <h3>Smart Tools for Smarter Trades</h3>
             <p class="muted">Leverage analytics, signals, and automation to maximize performance.</p>
           </div>
@@ -99,9 +84,8 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> ZIFX.MY — Stop Trading Time for Money</div>
-      <div><a href="contact.html">Contact</a></div>
+    <div class="container">
+      © <span id="year"></span> ZIFX.MY — Stop Trading Time for Money • <a href="contact.html" class="muted">Contact</a>
     </div>
   </footer>
 
