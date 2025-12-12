@@ -66,3 +66,35 @@
     b.addEventListener('click', () => setActive(fontButtons, b));
   });
 })();
+
+// assets/theme.js
+(() => {
+  const root = document.documentElement;
+
+  function applyTheme(name) {
+    document.body.classList.remove('body--theme-a','body--theme-b','body--theme-c');
+    document.body.classList.add(`body--theme-${name}`);
+    localStorage.setItem('zifx-theme', name);
+  }
+
+  function applyFont(name) {
+    document.body.setAttribute('data-font', name);
+    localStorage.setItem('zifx-font', name);
+  }
+
+  // restore saved prefs
+  const savedTheme = localStorage.getItem('zifx-theme') || 'b';
+  const savedFont = localStorage.getItem('zifx-font') || 'poppins';
+  applyTheme(savedTheme);
+  applyFont(savedFont);
+
+  // wire up buttons
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    if (t.matches('[data-theme]')) {
+      applyTheme(t.getAttribute('data-theme'));
+    } else if (t.matches('[data-font]')) {
+      applyFont(t.getAttribute('data-font'));
+    }
+  });
+})();
