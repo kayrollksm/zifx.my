@@ -1,47 +1,55 @@
-// theme.js - simple theme & font switcher with persistence
+// theme.js
 (function(){
-  const body = document.body;
-  const themeBtns = document.querySelectorAll('[data-theme]');
-  const fontBtns = document.querySelectorAll('[data-font]');
+  const themeButtons = document.querySelectorAll('.theme-btn');
+  const fontButtons = document.querySelectorAll('.font-btn');
 
-  // load saved
-  const savedTheme = localStorage.getItem('zifx_theme') || 'a';
-  const savedFont = localStorage.getItem('zifx_font') || 'poppins';
+  // read saved
+  const savedTheme = localStorage.getItem('zifx-theme') || 'a';
+  const savedFont = localStorage.getItem('zifx-font') || 'poppins';
 
-  // apply
-  body.setAttribute('data-theme', savedTheme);
-  body.setAttribute('data-font', savedFont);
-  markActive();
+  // apply initial
+  applyTheme(savedTheme);
+  applyFont(savedFont);
+  highlightButtons();
 
-  // click handlers
-  themeBtns.forEach(b => b.addEventListener('click', e => {
-    const t = b.dataset.theme;
-    body.setAttribute('data-theme', t);
-    localStorage.setItem('zifx_theme', t);
-    markActive();
+  // listeners
+  themeButtons.forEach(btn => btn.addEventListener('click', () => {
+    const t = btn.dataset.theme;
+    applyTheme(t);
+    localStorage.setItem('zifx-theme', t);
+    highlightButtons();
   }));
 
-  fontBtns.forEach(b => b.addEventListener('click', e => {
-    const f = b.dataset.font;
-    body.setAttribute('data-font', f);
-    localStorage.setItem('zifx_font', f);
-    markActive();
+  fontButtons.forEach(btn => btn.addEventListener('click', () => {
+    const f = btn.dataset.font;
+    applyFont(f);
+    localStorage.setItem('zifx-font', f);
+    highlightButtons();
   }));
 
-  function markActive(){
-    // theme
-    themeBtns.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.theme === body.getAttribute('data-theme'));
+  function applyTheme(name){
+    document.body.classList.remove('theme-a','theme-b','theme-c');
+    if(name === 'b') document.body.classList.add('theme-b');
+    else if(name === 'c') document.body.classList.add('theme-c');
+    else document.body.classList.add('theme-a');
+  }
+
+  function applyFont(name){
+    document.body.setAttribute('data-font', name);
+  }
+
+  function highlightButtons(){
+    const currentTheme = localStorage.getItem('zifx-theme') || savedTheme;
+    const currentFont  = localStorage.getItem('zifx-font')  || savedFont;
+
+    themeButtons.forEach(b=>{
+      b.classList.toggle('active', b.dataset.theme === currentTheme);
     });
-    // font
-    fontBtns.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.font === body.getAttribute('data-font'));
+    fontButtons.forEach(b=>{
+      b.classList.toggle('active', b.dataset.font === currentFont);
     });
   }
 
-  // small: animate nav-cta when in view on load
-  window.addEventListener('load', () => {
-    const cta = document.querySelector('.nav-cta');
-    if(cta) cta.animate([{transform:'translateY(6px)'},{transform:'translateY(0)'}],{duration:700,fill:'forwards',easing:'cubic-bezier(.2,.9,.3,1)'});
-  });
+  // make sure buttons are highlighted at load
+  window.addEventListener('load', highlightButtons);
 })();
