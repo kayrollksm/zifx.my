@@ -1,67 +1,129 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ZIFX — Contact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>ZIFX — Register Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
-  <header class="topbar-wrap">
-    <div class="topbar container">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="ZIFX logo" />
-        <div class="brand-text">
-          <div class="brand-title">ZIFX</div>
-          <div class="brand-sub">stop trading time for money</div>
-        </div>
+
+<body data-theme="a" data-font="poppins">
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" class="brand-logo" alt="ZIFX">
+      <div class="brand-text">
+        <div class="brand-title">ZIFX</div>
+        <div class="brand-sub">stop trading time for money</div>
       </div>
-      <nav class="controls">
-        <div class="control-group">
-          <a class="btn" href="index.html">Home</a>
-          <a class="btn" href="contact.html">Contact</a>
-          <a class="btn" href="terms.html">Terms</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+    </a>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <h1>Contact Us</h1>
-        <p>For partnership, investor relations or general enquiries — email us at <a href="mailto:hello@zifx.my">hello@zifx.my</a> or use the form below.</p>
+    <nav class="controls">
+      <a class="btn small" href="index.html">Home</a>
+      <a class="btn small active" href="contact.html">Register</a>
+      <a class="btn small" href="plan.html">Plans</a>
+    </nav>
+  </div>
+</header>
 
-        <form action="#" method="post" style="max-width:700px;margin-top:20px">
-          <label>
-            <div style="margin-bottom:8px">Name</div>
-            <input type="text" name="name" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)">
-          </label>
+<main>
+  <section class="hero" style="padding-top:80px">
+    <div class="hero-bg"></div>
 
-          <label style="margin-top:12px;display:block">
-            <div style="margin-bottom:8px">Email</div>
-            <input type="email" name="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)">
-          </label>
+    <div class="container hero-inner">
+      <h1 class="hero-title">Register Now</h1>
+      <p class="hero-sub">
+        Start your passive income journey with ZIFX.<br>
+        Fill in your details and our team will contact you.
+      </p>
 
-          <label style="margin-top:12px;display:block">
-            <div style="margin-bottom:8px">Message</div>
-            <textarea name="message" rows="6" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)"></textarea>
-          </label>
+      <div class="hero-card" style="max-width:640px">
+        <form class="register-form">
 
-          <div style="margin-top:12px">
-            <button class="btn-primary" type="submit">Send Message</button>
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" required>
+
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com" required>
+
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+60xxxxxxxxx" required>
+
+          <label>Investment Interest</label>
+          <select required>
+            <option value="">Select a plan</option>
+            <option>Standard Plan (RM1,000)</option>
+            <option>Growth Plan (RM5,000)</option>
+            <option>Premium Plan (RM10,000)</option>
+          </select>
+
+          <label>Message (Optional)</label>
+          <textarea rows="4" placeholder="Any question or note..."></textarea>
+
+          <div class="cta" style="margin-top:20px">
+            <button type="submit" class="btn-primary">Register Now</button>
           </div>
+
+          <p class="muted" style="margin-top:14px;font-size:13px;text-align:center">
+            By submitting this form, you agree to be contacted by ZIFX.
+          </p>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer class="footer">
-    <div class="container">© <span id="year8"></span> ZIFX.MY</div>
-  </footer>
+<footer class="footer">
+  <div class="container">
+    © 2025 ZIFX.MY — Stop Trading Time for Money
+  </div>
+</footer>
 
-  <script>document.getElementById('year8').textContent = new Date().getFullYear();</script>
-  <script src="assets/theme.js"></script>
+<script src="assets/theme.js"></script>
+
+<style>
+/* Form styling (inline supaya terus jalan) */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.register-form label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.register-form input,
+.register-form select,
+.register-form textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.register-form input::placeholder,
+.register-form textarea::placeholder {
+  color: #9aa6ad;
+}
+
+.register-form input:focus,
+.register-form select:focus,
+.register-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(38,195,163,0.2);
+}
+</style>
+
 </body>
 </html>
