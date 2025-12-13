@@ -1,4 +1,3 @@
-// assets/theme.js
 (function(){
   const root = document.body;
   const themeButtons = document.querySelectorAll('[data-theme]');
@@ -34,10 +33,8 @@
   });
 
   function applyTheme(t){
-    // remove classes then set body class
     document.body.classList.remove('theme-a','theme-b','theme-c');
     document.body.classList.add('theme-'+(t||'a'));
-    // set aria-pressed and active class
     themeButtons.forEach(b=>{
       const is = b.getAttribute('data-theme')===t;
       b.setAttribute('aria-pressed', is ? 'true' : 'false');
@@ -48,8 +45,7 @@
   function applyFont(f){
     document.body.setAttribute('data-font', f);
     fontButtons.forEach(b=>{
-      const is = b.getAttribute('data-font')===f;
-      b.classList.toggle('active', is);
+      b.classList.toggle('active', b.getAttribute('data-font')===f);
     });
   }
 
